@@ -5,25 +5,29 @@
 #include <string.h>
 #include <zconf.h>
 
-#define HTTP_PORT 80
-#define NUM_OF_SERVERS 3
-#define NUM_OF_CLIENTS 1
-#define MIN_PORT_NUM 1024
-#define MAX_PORT_NUM 64000
-#define MESSAGE_SIZE 128
-#define FOUND_END_OF_LINE(c) (*c == '\r') && (*(c+1) == '\n') && (*(c+2) == '\r') && (*(c+3) == '\n')
-#define POINTER_EXISTS(c) (c+4)
-#define GET_CURR_SERVER(c) ((c + 1) % 3)
-
-#define SERVER_PORT_FILE_NAME "server_port"
-#define CLIENT_PORT_FILE_NAME "http_port"
-
 /****************************************************
 *                                                   *
 *                C Language Workshop                *
 *                Sockets Assignment                 *
 *                                                   *
 *****************************************************/
+
+/* Variables */
+#define HTTP_PORT 80
+#define NUM_OF_SERVERS 3
+#define NUM_OF_CLIENTS 1
+#define MIN_PORT_NUM 1024
+#define MAX_PORT_NUM 64000
+#define MESSAGE_SIZE 128
+
+/* Macros */
+#define FOUND_END_OF_LINE(c) (*c == '\r') && (*(c+1) == '\n') && (*(c+2) == '\r') && (*(c+3) == '\n')
+#define POINTER_EXISTS(c) (c+4)
+#define GET_CURR_SERVER(c) ((c + 1) % 3)
+
+/* Strings */
+#define SERVER_PORT_FILE_NAME "server_port"
+#define CLIENT_PORT_FILE_NAME "http_port"
 
 typedef enum {
     CLIENT=1,
